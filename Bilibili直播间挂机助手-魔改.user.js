@@ -4,8 +4,8 @@
 // @version      2.4.6.8
 // @description  Bilibili直播间自动签到，领瓜子，参加抽奖，完成任务，送礼，自动点亮勋章，挂小心心等，包含恶意代码
 // @author       SeaLoong,lzghzr,pjy612
-// @updateURL    https://github.com/3242394814/Bilibili-LRHH/raw/main/Bilibili%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B-%E9%AD%94%E6%94%B9.user.js
-// @downloadURL  https://github.com/3242394814/Bilibili-LRHH/raw/main/Bilibili%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B-%E9%AD%94%E6%94%B9.user.js
+// @updateURL    https://github.com/pjy612/Bilibili-LRHH/raw/main/Bilibili%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B-%E9%AD%94%E6%94%B9.user.js
+// @downloadURL  https://github.com/pjy612/Bilibili-LRHH/raw/main/Bilibili%E7%9B%B4%E6%92%AD%E9%97%B4%E6%8C%82%E6%9C%BA%E5%8A%A9%E6%89%8B-%E9%AD%94%E6%94%B9.user.js
 // @icon         https://i2.hdslb.com/bfs/face/e22c5fdc6df3fa04856b9fbed31a6630a391ef1d.jpg
 // @homepageURL  https://github.com/3242394814/Bilibili-LRHH
 // @supportURL   https://github.com/pjy612/Bilibili-LRHH/issues
@@ -423,7 +423,7 @@ BilibiliToken.platform = 'android';
 (function BLRHH_Plus() {
     'use strict';
     const NAME = 'BLRHH-Plus';
-    const VERSION = '2.4.6.7';
+    const VERSION = '2.4.6.8';
     try {
         var tmpcache = JSON.parse(localStorage.getItem(`${NAME}_CACHE`));
         const t = Date.now() / 1000;
@@ -1372,7 +1372,7 @@ BilibiliToken.platform = 'android';
                         curPage = 1,
                         totalpages = 0;
                     do {
-                        let response = await API.i.medal(curPage);
+                        let response = await API.i.medal(curPage, 10);
                         DEBUG('Gift.getMedalList: API.i.medal', response);
                         medal_list = medal_list.concat(response.data.fansMedalList);
                         curPage = response.data.pageinfo.curPage;
@@ -2873,7 +2873,7 @@ BilibiliToken.platform = 'android';
                 Essential.init().then(() => {
                     console.log("脚本配置加载完毕...")
                     window.toast('脚本配置加载完毕...', 'info');
-                    window.toast('魔改脚本原GitHub地址：https://github.com/pjy612/Bilibili-LRHH', 'info');
+                    window.toast('原作者的魔改脚本地址：https://github.com/pjy612/Bilibili-LRHH', 'info');
                     console.log('原版挂机助手作者Q群：704160936（满）  1046583474（新） 答案：!!!')
                     try {
                         API = BilibiliAPI;
@@ -2920,7 +2920,7 @@ BilibiliToken.platform = 'android';
                         });
                         uniqueMark();
                         window.toast('正在初始化脚本...', 'info');
-                        window.toast('魔改版本 2.4.6.7 (自动送礼fix)', 'info');
+                        window.toast('魔改版本 2.4.6.8 (自动送礼fix)', 'info');
                         const InitData = () => {
                             const p = $.Deferred();
                             let initFailed = false;
